@@ -8,11 +8,9 @@ public class Method implements IClassComponent {
 	String input;
 	ArrayList<IBodyPart> parts;
 	
-	public Method() {
+	public Method(String[] s) {
 		parts = new ArrayList<IBodyPart>();
-	}
-	
-	public void fill(String[] s) {
+		
 		for (int i = 0; i < s.length; i++) {
 			if (s[i].equals("called")) {
 				this.name = s[++i];
@@ -24,10 +22,33 @@ public class Method implements IClassComponent {
 		}
 	}
 	
-	
 	public String getInput(String[] s) {
-		return "This is where the input goes";
+		String temp = "";
+		int i = 0;
+		while (!s[i].equals("input")) { i++; }
+		
+		for (int j = i+1; j < s.length; j+=2) {
+			String 
+		}
+		return temp;
 	}
+	
+	public void addComponent(String[] s) {
+		IBodyPart newComp = null;
+		
+		int i;
+		for (i = 0; i < s.length; i++) {
+			if (s[i].equals("variable")) {
+				newComp = new Variable( Arrays.copyOfRange(s, ++i, s.length - 1) );
+				break;
+			}
+		}
+		
+		if (newComp != null) {
+			this.parts.add(newComp);
+		}
+	}
+	
 	
 	public void print() {
 		System.out.println("public " + this.type + " " + this.name + " (" + this.input + ") {");

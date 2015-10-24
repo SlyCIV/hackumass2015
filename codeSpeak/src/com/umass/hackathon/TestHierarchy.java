@@ -4,14 +4,11 @@ import java.lang.*;
 public class TestHierarchy {
 
 	public static void main(String[] args) {
-		Class testClass = new Class();
-		testClass.fill(new String[]{"class", "called", "Batman"});
+		String s = "create a class called Batman";
+		Class testClass = new Class( s.split(" "));
 		
-		Method m = new Method();
-		String s = "create a method of type int with input of integer n called mystery";
-		m.fill( s.split(" ") );
-		
-		testClass.components.add(m);
+		s = "Within Batman, create a method called mystery of type int with input of integer n.";
+		testClass.addComponent(s.split(" "));
 		
 		testClass.print();
 	}

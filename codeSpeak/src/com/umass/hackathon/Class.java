@@ -23,10 +23,10 @@ public class Class implements ICreatable {
 		int i;
 		for (i = 0; i < s.length; i++) {
 			if (s[i].equals("method")) {
-				newComp = new Method();
+				newComp = new Method( Arrays.copyOfRange(s, ++i, s.length - 1) );
 				break;
 			} else if (s[i].equals("variable")) {
-				newComp = new Variable();
+				newComp = new Variable( Arrays.copyOfRange(s, ++i, s.length - 1) );
 				break;
 			}
 		}
