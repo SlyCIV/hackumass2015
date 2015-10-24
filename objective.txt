@@ -1,0 +1,91 @@
+Primitive data types:
+int = Create an integer [x] equal [value]
+double = Create a double [x] equal [value]
+float = Create a float [x] equal [value]
+long = Create a long [x] equal [value]
+byte = Create a byte [x] equal [value]
+char = Create a char [x] equal [value]
+short = Create a short [x] equal [value]
+boolean = Create a boolean [x] equal [value]
+
+Class types:
+Boolean = Create a class boolean [x] equal [value]
+Byte = Create a class byte [x] equal [value]
+Character = Create a class character [x] equal [value]
+Double = Create a class double [x] equal [value]
+Float = Create a class float [x] equal [value]
+Integer = Create a class integer [x] equal [value]
+Long = Create a class long [x] equal [value]
+Object = Create an object [x] equal [value]
+Short = Create a class short [x] equal [value]
+String = Create a string [x] equal [value]
+Void = void
+
+Functions:
+if() = if [clause], [predicate]
+if(){}else{} = if [clause], [predicate], else [predicate2]
+if(){}elseif(){}else{} = if [clause], [predicate], else if [clause2], [predicate2], else [predicate3] ------------Extend where necessary
+while() = while [clause], [predicate]
+do() = do [command]
+goto() = go to [line number]
+
+Comparative operators:
+< = [x] is leass than [y]
+> = [x] is greater than [y]
+== = [x] is equal to [y]
+<= = [x] is less than or equal to [y]
+>= = [x] is greater than or equal to [y]
+
+Arithmetic operators:
++ = [x] plus [y] OR sum of [x] and [y]
+- = [x] minus [y] OR difference of [x] and [y]
+* = [x] times [y] OR product of [x] and [y]
+/ = [x] divided by [y] OR quotient of [x] and [y]
+% = [x] modulo [y] OR remainder of [x] divided by [y]
+
+Conditional operators:
+&& = [x] and [y]
+|| = [x] or [y]
+?: see if-then
+
+Unary operators:
+++ = increment [x] by 1
+-- = decrement [x] by 1
+! = not [clause] OR not [variable]
+
+Bitwise:
+~ = the bitwise opposite of [x]
+<< = signed left shift of [x] by [y]
+>> = signed right shift of [x] by [y]
+>>> = unsigned right shift of [x] by [y]
+& = bitwise and of [x] and [y]
+^ = exclusive or of [x] and [y]
+| = bitwise or of [x] and [y]
+
+Array implementation = Create a(n) [type] array of length [size] called [name]
+
+print = print [clause] OR print [variable]
+
+println = printline [clause] OR printline [variable]
+
+switch statements = Based on the [type] [variable], if [variable] is equal to [x], [predicate], if [variable] is equal to [y], [predicate2], ..., and default is [predicate3]
+
+for loops = for [variable] [x], when [clause] and [x] [incrementation], [predicate]
+
+instantiating a method = Create a method of type [type] with input of [input] and [input2] ... called [method name]
+
+break = break;
+
+assignment operators:
+= = equal
++= = [x] is increased by [y]
+-= = [x] is decreased by [y]
+*= = [x] is multiplied by [y]
+/= = [x] is divided by [y]
+%= = [x] is the remainder of [x] divided by [y]
+&= = [x] is the bitwise and of [x] and [y]
+^= = [x] is the exclusive or of [x] and [y]
+|= = [x] is the bitwise or of [x] and [y]
+<<= = [x] is the signed left shift of [x] by [y]
+>>= = [x] is the signed right shift of [x] by [y]
+>>>= = [x] is the unsigned right shift of [x] by [y]
