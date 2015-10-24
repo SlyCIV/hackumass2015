@@ -1,0 +1,13 @@
+package com.umass.hackathon;
+
+import java.io.BufferedReader;
+
+public class Parser {
+	
+	public String readSentence(String filename) {
+		BufferedReader reader = new BufferedReader( new FileReader() );
+		
+		
+		return "1";
+	}
+}

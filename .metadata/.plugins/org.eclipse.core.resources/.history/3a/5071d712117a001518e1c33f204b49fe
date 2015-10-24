@@ -1,0 +1,10 @@
+package com.umass.hackathon;
+
+public class TestParser {
+	public static void main(String[] args) {
+		Parser p = new Parser("test_parser.txt");
+		
+		
+		
+	}
+}

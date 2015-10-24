@@ -1,0 +1,24 @@
+package com.umass.hackathon;
+
+import java.io.*;
+
+public class Parser {
+	
+	String filename;
+	BufferedReader reader;
+	
+	public String readSentence() {
+		BufferedReader reader;
+		
+		try {
+			reader = new BufferedReader( new FileReader(this.filename) );
+		} catch (IOException e) {
+		    e.printStackTrace();
+		    System.err.println("Unable to open file.");
+		    return null;
+		}
+		
+		
+		return "1";
+	}
+}

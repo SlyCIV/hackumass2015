@@ -1,0 +1,47 @@
+package com.umass.hackathon;
+
+import java.io.*;
+
+public class Parser {
+	
+	String filename, buffer;
+	BufferedReader reader;
+	
+	public Parser(String filename) {
+		this.filename = filename;
+		this.buffer = null;
+		
+		try {
+			this.reader = new BufferedReader( new FileReader(this.filename) );
+		} catch (IOException e) {
+		    e.printStackTrace();
+		    System.err.println("Unable to open file.");
+		}
+	}
+	
+	public String readFromFile() {
+		try {
+			this.buffer = reader.readLine();
+		} catch (IOException e) {
+		    e.printStackTrace();
+		    System.err.println("Unable to read from file.");
+		}
+	}
+	
+	public String readSentence() {
+		
+		if (this.buffer == null) {
+			readToBuffer();
+		}
+		
+		int periodIndex;
+		
+		if ( (periodIndex = buffer.indexOf('.')) != -1) {
+			String temp = this.buffer.substring(0, periodIndex);
+			this.buffer = this.buffer.substring(periodIndex + 1, this.buffer.length());
+			return temp;
+		}
+		
+		
+	}
+}
