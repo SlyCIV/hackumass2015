@@ -1,0 +1,2 @@
+Create class called Journey. Within Journey, create public method of type int, input int n, named oldman.
+Within Journey, within oldman, create int a equal 5, and create int b equal 9. Return 1.
