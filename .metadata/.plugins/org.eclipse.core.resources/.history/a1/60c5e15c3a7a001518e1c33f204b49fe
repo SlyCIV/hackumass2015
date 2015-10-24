@@ -3,7 +3,7 @@ package com.umass.hackathon;
 public class nonComperative extends Binary{
 	
 	public nonComperative(IOperand partA, IOperand partB, IOperator operator){
-		super(partA, partB, operator);
+		super(partA, PartB, operator);
 	}
 	
 	public String toString(){

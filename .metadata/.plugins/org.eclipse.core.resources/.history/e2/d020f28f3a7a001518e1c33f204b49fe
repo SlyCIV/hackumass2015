@@ -1,4 +1,4 @@
-package com.umass.hackathon;
+package com.umass.hackaton;
 
 public class Comperative extends Binary {
 	

@@ -1,0 +1,12 @@
+public abstract class Binary extends IOperator{
+	IOperand partA, partB;
+	IOperator operator;
+	
+	public Binary(IOperand partA, IOperand PartB, IOperator operator){
+		this.partA = partA;
+		this.partB = partB;
+		this.operator = operator;
+	}
+	
+	public abstract toString();
+}

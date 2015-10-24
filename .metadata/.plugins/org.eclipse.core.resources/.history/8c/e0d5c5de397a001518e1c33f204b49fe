@@ -1,5 +1,3 @@
-package com.umass.hackathon;
-
 public class Unary implements IOperator{
 	String[] components;
 	
@@ -8,10 +6,8 @@ public class Unary implements IOperator{
 	}
 	
 	public String toString(){
-		String temp = "";
 		for(int i = 0; i < this.components.length; i++){
-			temp+= this.components[i];
+			System.out.print(this.components[i]);
 		}
-		return temp;
 	}
 }

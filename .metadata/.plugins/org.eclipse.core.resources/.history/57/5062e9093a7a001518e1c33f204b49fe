@@ -1,9 +1,7 @@
-package com.umass.hackathon;
-
-public class Comperative extends Binary {
+public class Comperative extends Binary{
 	
-	public Comperative(IOperand partA, IOperand partB, IOperator operator){
-		super(partA, partB, operator);
+	public Comperative(){
+		super();
 	}
 	
 	public String toString(){

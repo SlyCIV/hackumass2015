@@ -1,6 +1,6 @@
-package com.umass.hackathon;
+com.umass.hackaton;
 
-public class nonComperative extends Binary{
+public class Comperative extends Binary {
 	
 	public nonComperative(IOperand partA, IOperand partB, IOperator operator){
 		super(partA, partB, operator);
@@ -8,9 +8,9 @@ public class nonComperative extends Binary{
 	
 	public String toString(){
 		String retval = "";
-		retval += this.partA;
-		retval += this.operator;
-		retval += this.partB;
+		retval += this.partA.toString();
+		retval += this.operator.toString();
+		retval += this.partB.toString();
 		return retval;
 	}
 }
