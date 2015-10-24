@@ -6,15 +6,33 @@ public class Class implements ICreatable {
 	String name;
 	ArrayList<IClassComponent> components;
 	
-	public Class() {
+	public Class(String[] s) {
 		components = new ArrayList<IClassComponent>();
-	}
-	
-	public void fill(String[] s) {
+		
 		for (int i = 0; i < s.length; i++) {
 			if (s[i].equals("called")) {
 				this.name = s[++i];
+				break;
 			}
+		}
+	}
+	
+	public void addComponent(String[] s) {
+		IClassComponent newComp = null;
+		
+		int i;
+		for (i = 0; i < s.length; i++) {
+			if (s[i].equals("method")) {
+				newComp = new Method();
+				break;
+			} else if (s[i].equals("variable")) {
+				newComp = new Variable();
+				break;
+			}
+		}
+		
+		if (newComp != null) {
+			this.components.add(newComp);
 		}
 	}
 	
