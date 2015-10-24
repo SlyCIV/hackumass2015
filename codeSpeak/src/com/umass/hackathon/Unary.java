@@ -1,0 +1,13 @@
+public class Unary extends IOperator{
+	String[] components;
+	
+	public Unary(String[] components){
+		this.components = components;
+	}
+	
+	public String toString(){
+		for(int i = 0; i < this.components.length(); i++){
+			System.out.print(this.components[i]);
+		}
+	}
+}
