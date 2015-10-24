@@ -73,7 +73,7 @@ switch statements = Based on the [type] [variable], if [variable] is equal to [x
 
 for loops = for [variable] [x], when [clause] and [x] [incrementation], [predicate]
 
-instantiating a method = Create method of type [type] called [method name] with input of [input] and [input2] ... 
+instantiating a method = Create method of type [type] called [method name] with input of [input], [input2], ... 
 
 break = break
 
