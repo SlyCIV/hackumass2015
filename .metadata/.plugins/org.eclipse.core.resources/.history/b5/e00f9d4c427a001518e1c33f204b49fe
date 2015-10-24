@@ -29,9 +29,8 @@ public class Variable implements IClassComponent, IBodyPart {
 	// maybe will allow you to update a value later
 	public void addComponent(String[] s) {}
 	
-	public void print() {}
 	
 	public String toString() {
-		return this.type + " " + this.name;
+		return (this.type + " " + this.name);
 	}
 }

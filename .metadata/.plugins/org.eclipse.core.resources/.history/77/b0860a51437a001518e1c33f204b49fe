@@ -28,12 +28,10 @@ public class Method implements IClassComponent {
 		
 		if (s[i].equals("of")) {i++;}
 		
-		System.out.println(s.length);
-		
 		for (int j = i; j < s.length - 1; j+=2) {
-			String type = s[j++];
+			String type = s[j];
 			System.out.println(type);
-			String name = s[j];
+			String name = s[j+1];
 			
 			if (type.toLowerCase().equals("integer")) {
 				type = "int";

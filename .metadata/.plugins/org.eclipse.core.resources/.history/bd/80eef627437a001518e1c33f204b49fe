@@ -17,7 +17,7 @@ public class Method implements IClassComponent {
 			} else if (s[i].equals("type")) {
 				this.type = s[++i];
 			} else if (s[i].equals("input")) {
-				input = getInput(Arrays.copyOfRange(s, i + 1, s.length + 1));
+				input = getInput(Arrays.copyOfRange(s, i + 1, s.length));
 			}
 		}
 	}
@@ -28,14 +28,12 @@ public class Method implements IClassComponent {
 		
 		if (s[i].equals("of")) {i++;}
 		
-		System.out.println(s.length);
-		
-		for (int j = i; j < s.length - 1; j+=2) {
-			String type = s[j++];
+		for (int j = i; j < s.length; j+=2) {
+			String type = s[j];
 			System.out.println(type);
-			String name = s[j];
+			String name = s[j+1];
 			
-			if (type.toLowerCase().equals("integer")) {
+			if (type.toCharArray().equals("integer")) {
 				type = "int";
 			}
 			

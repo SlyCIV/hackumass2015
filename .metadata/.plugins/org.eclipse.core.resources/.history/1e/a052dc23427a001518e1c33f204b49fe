@@ -17,30 +17,22 @@ public class Method implements IClassComponent {
 			} else if (s[i].equals("type")) {
 				this.type = s[++i];
 			} else if (s[i].equals("input")) {
-				input = getInput(Arrays.copyOfRange(s, i + 1, s.length + 1));
+				input = getInput(Arrays.copyOfRange(s, i, s.length - 1));
 			}
 		}
 	}
 	
 	public String getInput(String[] s) {
-		String temp = " ";
+		String temp = "";
 		int i = 0;
+		while (!s[i].equals("input")) { i++; }
 		
-		if (s[i].equals("of")) {i++;}
-		
-		System.out.println(s.length);
-		
-		for (int j = i; j < s.length - 1; j+=2) {
-			String type = s[j++];
-			System.out.println(type);
-			String name = s[j];
+		for (int j = i+1; j < s.length; j+=2) {
+			String type = s[j];
+			String name = s[j+1];
 			
-			if (type.toLowerCase().equals("integer")) {
-				type = "int";
-			}
+			if (type.equals("interger"))
 			
-			Variable newVar = new Variable(name, type);
-			temp += newVar.toString() + " ";
 		}
 		return temp;
 	}

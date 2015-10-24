@@ -7,7 +7,7 @@ public class TestHierarchy {
 		String s = "create a class called Batman";
 		Class testClass = new Class( s.split(" "));
 		
-		s = "Within Batman, create a method called mystery of type int with input of integer n";
+		s = "Within Batman, create a method called mystery of type int with input integer n.";
 		testClass.addComponent(s.split(" "));
 		
 		testClass.print();
