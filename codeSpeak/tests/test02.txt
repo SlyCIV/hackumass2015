@@ -1,0 +1,2 @@
+Create method of type int with input of integer n called mystery. Within mystery, create an integer x equal 5.
+Within mystery, create an integer y equal 6, and create an integer z equal the sum of x and y. Within mystery, return z;
