@@ -1,0 +1,11 @@
+package com.umass.hackathon;
+
+public class Variable implements IClassComponent {
+	
+	String name;
+	String type;
+	
+	public void print() {
+		// TODO
+	}
+}
