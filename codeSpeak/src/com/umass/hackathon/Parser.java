@@ -22,7 +22,6 @@ public class Parser {
 	public String readFromFile() {
 		try {
 			return reader.readLine();
-			
 		} catch (IOException e) {
 		    e.printStackTrace();
 		    System.err.println("Unable to read from file.");
@@ -42,16 +41,16 @@ public class Parser {
 			
 			String temp = this.buffer.substring(0, periodIndex);
 			
-			if (periodIndex+1 == buffer.length()) {
+			if (periodIndex == buffer.length() - 1) {
 				this.buffer = null;
 			} else {
-				this.buffer = this.buffer.substring(periodIndex + 1, this.buffer.length());
+				this.buffer = this.buffer.substring(periodIndex + 1, this.buffer.length() - 1);
 			
 				int i = 0;
-				while( !Character.isAlphabetic(this.buffer.charAt(i)) || !Character.isDigit(this.buffer.charAt(i)) ) {
+				while( !Character.isAlphabetic(this.buffer.charAt(i)) && !Character.isDigit(this.buffer.charAt(i)) ) {
 					i++;
 				}
-				this.buffer = this.buffer.substring(i, this.buffer.length() - 1);
+				this.buffer = this.buffer.substring(i, this.buffer.length());
 			}
 			
 			return temp;
@@ -60,7 +59,7 @@ public class Parser {
 			String temp = this.readFromFile();
 			if (temp == null) { return null; }
 			
-			this.buffer = this.buffer + " " + temp;
+			this.buffer = this.buffer + " "+ temp;
 			return readSentence();
 		}
 	}
