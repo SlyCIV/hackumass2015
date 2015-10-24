@@ -1,0 +1,6 @@
+package com.umass.hackathon;
+
+public class Clause implements IClause {
+
+	
+}

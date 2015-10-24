@@ -1,0 +1,34 @@
+package com.umass.hackathon;
+
+public class UnaryOp implements IClause {
+	
+	String operator;
+	String operand;
+	
+	public UnaryOp() {
+		
+	}
+	
+	public String printClause() {
+		switch(this.operator) {
+			case "!!":
+				return operand;
+				break;
+			case "!":
+				break;
+			case "~":
+				break;
+			case "++pre":
+				break;
+			case "--pre":
+				break;
+			case "++post":
+				break;
+			case "--post":
+				break;
+			default:
+				break;
+		
+		}
+	}
+}

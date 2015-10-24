@@ -1,0 +1,17 @@
+package com.umass.hackathon;
+import java.util.*;
+
+public class PrgmControlStructure implements IBodyPart {
+
+	ControlStructureMode mode;
+	IClause[] clauses;
+	ArrayList<IBodyPart> body; 
+	
+	PrgmControlStructure(String[] s) {
+		
+	}
+	
+	public void printBodyPart() {
+		
+	}
+}

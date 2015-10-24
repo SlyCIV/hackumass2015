@@ -1,0 +1,7 @@
+package com.umass.hackathon;
+
+public enum ControlStructureMode {
+	IF, IF_ELSE, ELSE, WHILE, DO_WHILE, FOR, SWITCH, CASE, COMPARITIVE, CONJUNCTIVE;
+	
+	public 
+}

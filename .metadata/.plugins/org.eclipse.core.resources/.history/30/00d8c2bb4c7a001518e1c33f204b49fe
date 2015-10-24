@@ -1,0 +1,11 @@
+package com.umass.hackathon;
+
+public class UnaryOp implements IClause {
+	
+	String operator;
+	String operand;
+	
+	public void printClause() {
+		
+	}
+}

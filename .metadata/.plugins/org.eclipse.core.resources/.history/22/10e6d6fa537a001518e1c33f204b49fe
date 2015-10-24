@@ -1,0 +1,8 @@
+package com.umass.hackathon;
+
+public class Operand implements IClauseComponent {
+
+	public String printClauseComponent() {
+		return null;
+	}
+}

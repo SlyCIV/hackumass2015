@@ -1,0 +1,28 @@
+package com.umass.hackathon;
+
+public class BinaryOp implements IClause {
+	String operator;
+	String[] operand;
+	
+	public BinaryOp() {
+		operand = new String[2];
+	}
+	
+	public String printClause() {
+		switch(this.operator) {
+			case "!!":
+			case "!":
+			case "~":
+			case "++pre":
+			case "--pre":
+				return this.operator + this.operand;
+			case "++post":
+			case "--post":
+				return this.operand + this.operator;
+			default:
+				return null;
+		
+		}
+	}
+
+}

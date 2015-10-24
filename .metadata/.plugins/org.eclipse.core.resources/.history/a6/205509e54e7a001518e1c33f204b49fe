@@ -1,0 +1,16 @@
+package com.umass.hackathon;
+
+public class BinaryOp implements IClause {
+	String operator;
+	String[] operand;
+	
+	public BinaryOp(String operator, String[] operands) {
+		operand = new String[2];
+		// TODO
+	}
+	
+	public String printClause() {
+		return this.operand[0] + this.operator + this.operand[1];
+	}
+
+}

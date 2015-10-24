@@ -1,0 +1,15 @@
+package com.umass.hackathon;
+
+public class BinaryOp implements IClause {
+	String operator;
+	String[] operand;
+	
+	public BinaryOp() {
+		operand = new String[2];
+	}
+	
+	public String printClause() {
+	
+	}
+
+}

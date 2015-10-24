@@ -1,0 +1,11 @@
+package com.umass.hackathon;
+
+public class PrgmControlStructure implements IBodyPart {
+
+	IClause[] clauses;
+	
+	
+	public void print() {
+		
+	}
+}
