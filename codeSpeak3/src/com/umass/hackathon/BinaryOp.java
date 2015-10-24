@@ -10,8 +10,6 @@ public class BinaryOp implements IClauseComponent {
 		this.operand = operands;
 	}
 	
-	//public void makeIClauseComponent(String[] s) {}
-	
 	public String printIClauseComponent() {
 		return "(" + this.operand[0].printIClauseComponent() + this.operator + this.operand[1].printIClauseComponent() + ")";
 	}

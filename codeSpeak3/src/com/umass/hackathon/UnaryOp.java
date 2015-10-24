@@ -5,8 +5,9 @@ public class UnaryOp implements IClauseComponent {
 	String operator;
 	IClauseComponent operand;
 	
-	public UnaryOp() {
-		
+	public UnaryOp(String operator, IClauseComponent operand) {
+		this.operator = operator;
+		this.operand = operand;
 	}
 	
 	public String printIClauseComponent() {

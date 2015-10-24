@@ -1,0 +1,63 @@
+package com.umass.hackathon;
+
+import java.util.Arrays;
+
+public class ClauseCreator {
+
+	public static IClauseComponent buildIClauseComponent( String[] s ) {
+		
+		String operator;
+		
+		for (int i = 0; i < s.length; i++) {
+			
+			switch (s[i]) {
+				case "greater":
+					operator = ">";
+					for (int j = i + 1; j < s.length - 1; j++) {
+						if (s[j].equals("or") || s[j+1].equals("equal")) {
+							operator += "=";
+							break;
+						}
+					}
+				case "less":
+					operator = "<";
+					for (int j = i + 1; j < s.length - 1; j++) {
+						if (s[j].equals("or") && s[j+1].equals("equal")) {
+							operator += "=";
+							break;
+						}
+					}
+				case "equals":
+					operator = "==";
+				case "plus":
+					operator = "+";
+				case "minus":
+					operator = "-";
+				case "times":
+				case "divided":
+					
+					IClauseComponent left = buildIClauseComponent( Arrays.copyOfRange(s, 0, i));
+					IClauseComponent right = buildIClauseComponent( Arrays.copyOfRange(s, i+1, s.length));
+					return new BinaryOp(operator, new IClauseComponent[]{left, right});
+				case "not":
+				case "invert":
+				case "increment":
+				case "decrement":
+					
+			}
+		}
+		return null;
+	}
+	
+	private int findKeywordIndex(String[] s) {
+		
+		for (int i = 0; i < s.length; i++) {
+			
+		}
+		
+		
+		// if not found, return -1;
+		return -1;
+	}
+	
+}
