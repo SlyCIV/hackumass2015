@@ -1,0 +1,22 @@
+package com.umass.hackathon;
+
+public class Variable implements IClassComponent {
+	
+	String name;
+	String type;
+	int value;
+	
+	public Variable() {
+		
+	}
+	
+	
+	public ICreatable create(String[] s) {
+		// TODO
+		return null;
+	}
+	
+	public void print() {
+		// TODO
+	}
+}

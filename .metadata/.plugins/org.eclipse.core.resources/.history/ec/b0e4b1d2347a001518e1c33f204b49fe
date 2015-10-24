@@ -1,0 +1,6 @@
+package com.umass.hackathon;
+
+public interface ICreatable {
+	public create(String[] s);
+	public void print();
+}

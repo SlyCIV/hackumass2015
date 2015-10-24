@@ -1,0 +1,15 @@
+package com.umass.hackathon;
+
+public class TestHierarchy {
+
+	public static void main(String[] args) {
+		Class testClass = new Class();
+		testClass.fill(new String[]{"class", "called", "Batman"});
+		
+		Method m = new Method();
+		
+		
+		testClass.print();
+	}
+
+}

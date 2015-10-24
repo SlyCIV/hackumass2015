@@ -1,0 +1,35 @@
+package com.umass.hackathon;
+import java.util.*;
+
+public class Method implements IClassComponent {
+	// fields
+	String name;
+	String type;
+	String intput, output;
+	ArrayList<IBodyPart> parts;
+	
+	public Method() {
+	}
+	
+	public void fill(String[] s) {
+		for (int i = 0; i < s.length; i++) {
+			if (s[i].equals("called")) {
+				this.name = s[++i];
+			} else if (s[i].equals("type")) {
+				this.type = s[++i];
+			} else if (s[i].equals("input")) {
+				input = 
+			}
+		}
+	}
+	
+	
+	public String getInput(String s) {
+		
+		return null;
+	}
+	
+	public void print() {
+		// TODO
+	}
+}

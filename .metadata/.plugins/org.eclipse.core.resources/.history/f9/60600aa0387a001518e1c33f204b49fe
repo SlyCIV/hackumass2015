@@ -1,0 +1,16 @@
+package com.umass.hackathon;
+import java.lang.*;
+
+public class TestHierarchy {
+
+	public static void main(String[] args) {
+		Class testClass = new Class();
+		testClass.fill(new String[]{"class", "called", "Batman"});
+		
+		Method m = new Method();
+		m.fill( split("create a method of type int with input of integer n called mystery") );
+		
+		testClass.print();
+	}
+
+}

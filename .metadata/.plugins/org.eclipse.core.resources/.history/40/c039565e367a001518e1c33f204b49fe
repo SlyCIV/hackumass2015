@@ -1,0 +1,23 @@
+package com.umass.hackathon;
+import java.util.*;
+
+public class Method implements IClassComponent {
+	// fields
+	String name;
+	String type;
+	String accessModifier;
+	String intput, output;
+	ArrayList<IBodyPart> parts;
+	
+	public Method() {
+		
+	}
+	
+	public void fill(String[] s) {
+		// TODO
+	}
+	
+	public void print() {
+		// TODO
+	}
+}

@@ -6,14 +6,15 @@ public class Variable implements IClassComponent {
 	String type;
 	int value;
 	
-	public Variable(String s) {
-		this = (Variable)this.create(s);
+	public Variable() {
+		
 	}
 	
 	
-	public ICreatable create(String s) {
-		// TODO
-		return null;
+	public void fill(String[] s) {
+		for (int i = 0; i < s.length; i++) {
+			
+		}
 	}
 	
 	public void print() {
