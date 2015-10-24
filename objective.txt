@@ -47,13 +47,14 @@ Conditional operators:
 && = [x] and [y]
 || = [x] or [y]
 ?: see if-then
+^ = honorary conditional operator
 
 Unary operators:
 ++ = increment [x] by 1
 -- = decrement [x] by 1
 ! = not [clause] OR not [variable]
 
-Bitwise:
+Bitwise operators:
 ~ = the bitwise opposite of [x]
 << = signed left shift of [x] by [y]
 >> = signed right shift of [x] by [y]
@@ -74,7 +75,7 @@ for loops = for [variable] [x], when [clause] and [x] [incrementation], [predica
 
 instantiating a method = Create a method of type [type] with input of [input] and [input2] ... called [method name]
 
-break = break;
+break = break
 
 assignment operators:
 = = equal
