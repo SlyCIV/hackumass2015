@@ -8,9 +8,9 @@ public class nonComperative extends Binary{
 	
 	public String toString(){
 		String retval = "";
-		retval += this.partA;
-		retval += this.operator;
-		retval += this.partB;
+		retval += this.partA.toString();
+		retval += this.operator.toString();
+		retval += this.partB.toString();
 		return retval;
 	}
 }

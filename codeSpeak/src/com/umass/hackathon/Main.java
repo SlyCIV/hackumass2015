@@ -3,11 +3,15 @@ import java.util.Arrays;
 
 public class Main{
 	public static void main(String[] args){
-		Parser lineIn = new Parser("data/fileIO.txt");
+		while(currLine != NULL){
+			Parser lineIn = new Parser("data/fileIO.txt");
 
-		String[] currLine = lineIn.readSentence().split(" ");
+			String[] currLine = lineIn.readSentence().split(" ");
 
-		parse(currLine);
+			parse(currLine);
+
+			currLine = currLine.readSentence();
+		}
 	}
 
 	void parse(String[] n){
@@ -23,7 +27,7 @@ public class Main{
 				temp.components = Arrays.copyofRange(n,3,n.length());
 				temp.print();
 			}
-		}else if(n[0].toLowerCase().equals("create")){
+		} else if(n[0].toLowerCase().equals("create")){
 			if(n[1].toLowerCase().equals("class")){
 				Class temp = new Class(n);
 				temp.name = n[2];

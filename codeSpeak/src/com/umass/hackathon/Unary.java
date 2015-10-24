@@ -10,7 +10,7 @@ public class Unary implements IOperator{
 	public String toString(){
 		String temp = "";
 		for(int i = 0; i < this.components.length; i++){
-			temp+= this.components[i];
+			temp += this.components[i];
 		}
 		return temp;
 	}
