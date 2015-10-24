@@ -3,42 +3,107 @@ import java.util.Arrays;
 
 public class Main{
 	public static void main(String[] args){
-		while(currLine != NULL){
+		String[] currLine = null;
+		while(currLine.length > 0){
 			Parser lineIn = new Parser("data/fileIO.txt");
 
-			String[] currLine = lineIn.readSentence().split(" ");
+			currLine = lineIn.readSentence().split(" ");
 
 			parse(currLine);
-
-			currLine = currLine.readSentence();
 		}
 	}
-
-	void parse(String[] n){
-		if(n[0].toLowerCase().equals("within")){
-			if(n[1].toLowerCase().equals("class")){
-				Class temp = new Class(n);
-				temp.name = n[2];
-				temp.components = Arrays.copyofRange(n,3,n.length());
-				temp.print();
-			} else {
-				Method temp = new Method();
-				temp.name = n[2];
-				temp.components = Arrays.copyofRange(n,3,n.length());
-				temp.print();
+	
+	String parse(String[] n){
+		String temp = "";
+		String temp2 = "";
+		String retval = "";
+		int i = 0;
+		
+		switch(n[0].toLowerCase()){
+		case "if":
+			i = 1;
+			while(!n[i].contains(",")){
+				temp += n[i];
+				temp += " ";
+				i++;
 			}
-		} else if(n[0].toLowerCase().equals("create")){
-			if(n[1].toLowerCase().equals("class")){
-				Class temp = new Class(n);
-				temp.name = n[2];
-				temp.components = Arrays.copyofRange(n,3,n.length());
-				temp.print();
-			} else if(n[1].toLowerCase().equals("method")){
-				Method temp = new Method();
-				temp.name = n[2];
-				temp.components = Arrays.copyofRange(n,3,n.length());
-				temp.print();
+			
+			i++;
+			
+			while(!n[i].contains(",")){
+				temp2 += n[i];
+				temp2 += " ";
+				i++;
 			}
+			
+			retval += iff(temp, temp2);
+		case "create":
+			if(n[1].toLowerCase().contains("class")){
+				retval += "public class " + n[2] + "{\n\n}\n";
+				return retval;
+			}
+			if(n[1].toLowerCase().contains("method")){
+				String input = "";
+				i = 10;
+				while(i < n.length){
+					input += n[i];
+					input += " ";
+					i++;
+				}
+				retval += "public " + n[4] + " " + n[6] + "(" + input + ")"+ "{\n\n}\n";
+				return retval;
+			}
+			retval = n[1] + " " + n[2] + " = " + n[4];
+			return retval;
+		default:
+			return "";
 		}
+	}
+	
+	public String iff(String clause, String predicate){
+		String retval = "";
+		retval += "if(";
+		retval += clause(clause);
+		retval += "){\n";
+		retval += predicate(predicate);
+		retval += "\n}\n";
+		return retval;
+	}
+
+	public String predicate(String temp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String clause(String temp) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

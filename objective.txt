@@ -1,24 +1,24 @@
 Primitive data types:
-int = Create an integer [x] equal [value]
-double = Create a double [x] equal [value]
-float = Create a float [x] equal [value]
-long = Create a long [x] equal [value]
-byte = Create a byte [x] equal [value]
-char = Create a char [x] equal [value]
-short = Create a short [x] equal [value]
-boolean = Create a boolean [x] equal [value]
+int = Create integer [x] equal [value]
+double = Create double [x] equal [value]
+float = Create float [x] equal [value]
+long = Create long [x] equal [value]
+byte = Create byte [x] equal [value]
+char = Create char [x] equal [value]
+short = Create short [x] equal [value]
+boolean = Create boolean [x] equal [value]
 
 Class types:
-Boolean = Create a class boolean [x] equal [value]
-Byte = Create a class byte [x] equal [value]
-Character = Create a class character [x] equal [value]
-Double = Create a class double [x] equal [value]
-Float = Create a class float [x] equal [value]
-Integer = Create a class integer [x] equal [value]
-Long = Create a class long [x] equal [value]
-Object = Create an object [x] equal [value]
-Short = Create a class short [x] equal [value]
-String = Create a string [x] equal [value]
+Boolean = Create class boolean [x] equal [value]
+Byte = Create class byte [x] equal [value]
+Character = Create class character [x] equal [value]
+Double = Create class double [x] equal [value]
+Float = Create class float [x] equal [value]
+Integer = Create class integer [x] equal [value]
+Long = Create class long [x] equal [value]
+Object = Create object [x] equal [value]
+Short = Create class short [x] equal [value]
+String = Create string [x] equal [value]
 Void = void
 
 Functions:
@@ -73,7 +73,7 @@ switch statements = Based on the [type] [variable], if [variable] is equal to [x
 
 for loops = for [variable] [x], when [clause] and [x] [incrementation], [predicate]
 
-instantiating a method = Create a method of type [type] with input of [input] and [input2] ... called [method name]
+instantiating a method = Create method of type [type] called [method name] with input of [input], [input2], ... 
 
 break = break
 
