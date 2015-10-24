@@ -1,0 +1,25 @@
+package com.umass.hackathon;
+
+public class ClauseCreator {
+
+	public static IClauseComponent buildIClauseComponent( String[] s ) {
+		
+		
+		
+		return null;
+	}
+	
+	private int findKeywordIndex(String[] s) {
+		
+		for (int i = 0; i < s.length; i++) {
+			switch (s[i]) {
+				case "increment"
+			}
+		}
+		
+		
+		// if not found, return -1;
+		return -1;
+	}
+	
+}

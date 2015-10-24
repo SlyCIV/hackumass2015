@@ -1,5 +1,0 @@
-package com.umass.hackathon;
-
-public class Class implements ICreatable {
-	
-}

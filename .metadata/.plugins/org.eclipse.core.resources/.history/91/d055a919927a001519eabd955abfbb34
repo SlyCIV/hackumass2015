@@ -1,0 +1,10 @@
+package com.umass.hackathon;
+
+public class ClauseCreator {
+
+	public static IClauseComponent buildIClauseComponent( String[] s) {
+		
+		return null;
+	}
+	
+}
