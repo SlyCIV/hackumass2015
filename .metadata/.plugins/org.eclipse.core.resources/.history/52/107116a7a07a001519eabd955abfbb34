@@ -1,0 +1,49 @@
+package com.umass.hackathon;
+import java.util.*;
+
+public class PrgmControlStructure implements IBodyPart {
+
+	String mode;
+	IClauseComponent[] clauses;
+	ArrayList<IBodyPart> body; 
+	
+	PrgmControlStructure(String[] s) {
+		
+	}
+	
+	private void makeIClause(String[] s) {
+		switch (s[0].toLowerCase()) {
+			case "if":
+			case "while":
+			case "for":
+			case "do":
+				this.mode = s[0].toLowerCase();
+				break;
+			case "else":
+				this.mode = s[0].toLowerCase();
+				if (s[1].equals("if")) {
+					this.mode += " if";
+				}
+				break;
+			default:
+				break;
+		}
+		
+		switch (this.mode) {
+		case "if":
+		case "else if":
+		case "else":
+		case "while":
+		case "do":
+			default:
+				break;
+	}
+		
+
+	}
+	
+	
+	public void printBodyPart() {
+		
+	}
+}

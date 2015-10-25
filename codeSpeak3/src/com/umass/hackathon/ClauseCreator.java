@@ -5,17 +5,39 @@ import java.util.*;
 public class ClauseCreator {
 
 	public static IClauseComponent buildIClauseComponent( String[] s ) {
-		
-		String operator = null;
 		ArrayList<Integer> indexes = findKeywordsIndexes(s);
 		
-		int i = indexes.size()/2;
+		// base case
+		// if the remaining part of the string has no operators in it
+		// then it must be the operand
+		// for now, just return the first item in the list
+		if (indexes.size() == 0 || s.length < 2) {
+			return new Operand(s);
+		}
 		
+		int i = indexes.get( indexes.size()/2 );		
+		String operator = determineOperator(s, i);
+		
+		String opType = determineOperatorType( s[i] );
+		if (opType.equals("binary")) {
+			IClauseComponent left = buildIClauseComponent( Arrays.copyOfRange(s, 0, i));
+			IClauseComponent right = buildIClauseComponent( Arrays.copyOfRange(s, i + 1, s.length));
+			return new BinaryOp(operator, new IClauseComponent[]{left, right});
+		} else if (opType.equalsIgnoreCase("unary")) {
+			IClauseComponent operand = buildIClauseComponent( Arrays.copyOfRange(s, i + 1, s.length));
+			return new UnaryOp(operator, operand);
+		} else {
+			return null;
+		}
+	}
+	
+	private static String determineOperator(String[] s, int i) {
+		String operator = "";
 		switch (s[i]) {
 			case "greater":
 				operator = ">";
 				for (int j = i + 1; j < s.length - 1; j++) {
-					if (s[j].equals("or") || s[j+1].equals("equal")) {
+					if (s[j].equals("or") || s[j+1].equals("equals")) {
 						operator += "=";
 						break;
 					}
@@ -46,7 +68,7 @@ public class ClauseCreator {
 				operator = "/";
 				break;
 			// is this the right keyword?
-			case "exclusive":
+			case "xor":
 				operator = "^";
 				break;
 			case "and":
@@ -76,10 +98,15 @@ public class ClauseCreator {
 			case "decrement":
 				operator = "--";
 				break;
-				
+			default:
+				break;
+			
 		}
-		
-		switch (s[i]) {
+		return operator;
+	}
+	
+	private static String determineOperatorType(String s){
+		switch (s) {
 			case "greater":
 			case "less":
 			case "equals":
@@ -87,25 +114,23 @@ public class ClauseCreator {
 			case "minus":
 			case "times":
 			case "divided":	
-			case "exclusive":
+			case "xor":
 			case "bitwise":
-			case "and":
-			case "or":
-				IClauseComponent left = buildIClauseComponent( Arrays.copyOfRange(s, 0, i));
-				IClauseComponent right = buildIClauseComponent( Arrays.copyOfRange(s, i+1, s.length));
-				return new BinaryOp(operator, new IClauseComponent[]{left, right});
+				return "binary";
 			case "not":
 			case "invert":
 			case "increment":
 			case "decrement":
-				IClauseComponent operand = buildIClauseComponent( Arrays.copyOfRange(s, i+1, s.length));
-				return new UnaryOp(operator, operand);
+				return "unary";
+			case "and":
+			case "or":
+				// for now, might be "conditional" eventually
+				return "binary";
+			default:
+				return "dynamic";
 		}
-		
-		// need something for a dynamic clause
-	
-		return null;
 	}
+	
 	
 	private static ArrayList<Integer> findKeywordsIndexes(String[] s) {
 		
@@ -126,9 +151,9 @@ public class ClauseCreator {
 				case "decrement":
 				case "and":
 				case "or":
+				case "xor":
 				case "bitwise":
-					i++;
-					indexes.add(new Integer(i));
+					indexes.add(new Integer(i++));
 					break;
 				default:
 					break;

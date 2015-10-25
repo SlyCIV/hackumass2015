@@ -1,0 +1,13 @@
+package com.umass.hackathon;
+
+import java.util.ArrayList;
+
+public class BodyBuilder {
+	
+	public static void buildBody(String[] s, ArrayList<IBodyPart> body) {
+		
+		
+		
+	}
+	
+}

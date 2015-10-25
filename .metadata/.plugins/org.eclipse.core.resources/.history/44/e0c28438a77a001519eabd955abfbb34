@@ -1,0 +1,15 @@
+package com.umass.hackathon;
+
+public class Operand implements IClauseComponent {
+
+	String operand;
+	
+	public Operand(String[] op) { 
+		for (int i = 0; i < )
+		
+	}
+	
+	public String printIClauseComponent() {
+		return operand;
+	}
+}

@@ -1,0 +1,26 @@
+package com.umass.hackathon;
+
+public class Operand implements IClauseComponent {
+
+	String operand;
+	
+	public Operand(String[] s) { 
+		operand = null;
+		
+		for (int i = 0; i < s.length; i++) {
+			switch (s[i]) {
+				case "than":
+					break;
+				default:
+					break;
+			}
+		}
+		if (operand == null) {
+			operand = s[s.length ];
+		}
+	}
+	
+	public String printIClauseComponent() {
+		return operand;
+	}
+}

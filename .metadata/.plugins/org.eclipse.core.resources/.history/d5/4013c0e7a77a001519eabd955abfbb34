@@ -1,0 +1,30 @@
+package com.umass.hackathon;
+
+import java.util.Arrays;
+
+public class Operand implements IClauseComponent {
+
+	String operand;
+	
+	public Operand(String[] s) { 
+		System.out.println(Arrays.toString(s));
+		operand = null;
+		for (int i = 0; i < s.length; i++) {
+			switch (s[i]) {
+				case "than":
+					break;
+				case "is":
+					break;
+				default:
+					;
+			}
+		}
+		if (operand == null) {
+			operand = s[s.length - 1];
+		}
+	}
+	
+	public String printIClauseComponent() {
+		return operand;
+	}
+}

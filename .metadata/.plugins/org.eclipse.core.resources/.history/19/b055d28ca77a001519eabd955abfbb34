@@ -1,0 +1,23 @@
+package com.umass.hackathon;
+
+public class Operand implements IClauseComponent {
+
+	String operand;
+	
+	public Operand(String[] s) { 
+		operand = null;
+		
+		for (int i = 0; i < s.length; s++) {
+			switch (s[i]) {
+			
+			}
+		}
+		if (operand == null) {
+			operand = s[s.length - 1];
+		}
+	}
+	
+	public String printIClauseComponent() {
+		return operand;
+	}
+}
