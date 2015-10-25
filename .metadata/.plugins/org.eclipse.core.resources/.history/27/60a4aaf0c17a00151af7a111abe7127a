@@ -1,0 +1,12 @@
+package com.umass.hackathon;
+import java.lang.*;
+
+public class TestHierarchy {
+
+	public static void main(String[] args) {
+		String s = "do i like food while b is greater than invert n";
+		PrgmControlStructure test = new PrgmControlStructure( s.split(" ") );
+		test.printBodyPart();
+	}
+
+}

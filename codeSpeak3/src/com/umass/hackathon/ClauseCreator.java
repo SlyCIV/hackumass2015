@@ -7,6 +7,8 @@ public class ClauseCreator {
 	public static IClauseComponent buildIClauseComponent( String[] s ) {
 		ArrayList<Integer> indexes = findKeywordsIndexes(s);
 		
+		//System.out.println(Arrays.toString(s));
+		
 		// base case
 		// if the remaining part of the string has no operators in it
 		// then it must be the operand
@@ -17,20 +19,26 @@ public class ClauseCreator {
 		
 		int i = indexes.get( indexes.size()/2 );		
 		String operator = determineOperator(s, i);
-		
 		String opType = determineOperatorType( s[i] );
+		
 		if (opType.equals("binary")) {
-			IClauseComponent left = buildIClauseComponent( Arrays.copyOfRange(s, 0, i));
-			IClauseComponent right = buildIClauseComponent( Arrays.copyOfRange(s, i + 1, s.length));
-			return new BinaryOp(operator, new IClauseComponent[]{left, right});
-		} else if (opType.equalsIgnoreCase("unary")) {
-			IClauseComponent operand = buildIClauseComponent( Arrays.copyOfRange(s, i + 1, s.length));
-			return new UnaryOp(operator, operand);
+			return makeBinaryClause(operator, s, i);
+			
+		} else if (opType.equals("unary")) {
+			
+			for (int j = 0; j < indexes.size(); j++) {
+				if ( determineOperatorType(s[ indexes.get(j)]).equals("binary")) {
+					return makeBinaryClause( determineOperator(s, indexes.get(j)), s, indexes.get(j));
+				}
+			}
+			return makeUnaryClause(operator, s, i);
 		} else {
 			return null;
 		}
 	}
 	
+	// DETERMINEOPERATOR
+	// given a string, outputs the actual operator string
 	private static String determineOperator(String[] s, int i) {
 		String operator = "";
 		switch (s[i]) {
@@ -45,15 +53,20 @@ public class ClauseCreator {
 				break;
 			case "less":
 				operator = "<";
+				
 				for (int j = i + 1; j < s.length - 1; j++) {
-					if (s[j].equals("or") && s[j+1].equals("equal")) {
+					if (s[j].equals("or") || s[j+1].equals("equal")) {
 						operator += "=";
 						break;
 					}
 				}
 				break;
 			case "equals":
-				operator = "==";
+				if ( s[i-1].equals("than")) {
+					removeStringElement(s, i);
+				} else {
+					operator = "==";
+				}
 				break;
 			case "plus":
 				operator = "+";
@@ -75,9 +88,8 @@ public class ClauseCreator {
 				operator = "&&";
 				break;
 			case "or" :
-				if ( !s[i-1].equals("bitwise") ) {
-					operator = "||";
-				}
+				operator = "||";
+				
 				break;
 			case "bitwise":
 				if (s[i+1].equals("or")) {
@@ -105,6 +117,21 @@ public class ClauseCreator {
 		return operator;
 	}
 	
+	private static void removeStringElement(String[] s, int i) {
+		String[] newArray = new String[s.length - 1];
+		
+		for (int j = 0;  j < i; j++) {
+			newArray[j] = s[j];
+		}
+		for (int j = i;  j < s.length - 1; j++) {
+			newArray[j] = s[j+1];
+		}
+		
+		s = newArray;
+	}
+	
+	// DETERMINEOPERATORTYPE
+	// 	ie binary, unary, or other
 	private static String determineOperatorType(String s){
 		switch (s) {
 			case "greater":
@@ -131,9 +158,8 @@ public class ClauseCreator {
 		}
 	}
 	
-	
+	// FINDKEYWORDSINDEXES
 	private static ArrayList<Integer> findKeywordsIndexes(String[] s) {
-		
 		ArrayList<Integer> indexes = new ArrayList<Integer>();
 		
 		for (int i = 0; i < s.length; i++) {
@@ -150,19 +176,33 @@ public class ClauseCreator {
 				case "increment":
 				case "decrement":
 				case "and":
-				case "or":
 				case "xor":
 				case "bitwise":
 					indexes.add(new Integer(i++));
 					break;
+				case "or":
+					if ( s[i-1].equals("bitwise") || s[i-1].equals("than")) {
+						removeStringElement(s, i);
+					} else {
+						indexes.add(new Integer(i++));
+					}
 				default:
 					break;
-			}
-			
+			}	
 			// later, we can have a function called "isDynamicClause()"
 		}
-		
 		return indexes;
+	}
+	
+	private static IClauseComponent makeBinaryClause(String operator, String[] s, int i) {
+		IClauseComponent left = buildIClauseComponent( Arrays.copyOfRange(s, 0, i));
+		IClauseComponent right = buildIClauseComponent( Arrays.copyOfRange(s, i + 1, s.length));
+		return new BinaryOp(operator, new IClauseComponent[]{left, right});
+	}
+	
+	private static IClauseComponent makeUnaryClause(String operator, String[] s, int i) {
+		IClauseComponent operand = buildIClauseComponent( Arrays.copyOfRange(s, i + 1, s.length));
+		return new UnaryOp(operator, operand);
 	}
 	
 }

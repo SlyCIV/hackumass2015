@@ -1,5 +1,6 @@
 package com.umass.hackathon;
 import java.util.*;
+import java.lang.String;
 
 public class PrgmControlStructure implements IBodyPart {
 
@@ -41,9 +42,17 @@ public class PrgmControlStructure implements IBodyPart {
 			case "else if":
 			case "else":
 			case "while":
-			case "do":
 				clauses = new IClauseComponent[1];
 				clauses[0] = ClauseCreator.buildIClauseComponent( Arrays.copyOfRange(s, index, s.length));
+				break;
+			case "do":	
+				for (index = s.length - 1; index >= 0; index--) {
+					if (s[index].equals("while")) {
+						break;
+					}
+				}
+				clauses = new IClauseComponent[1];
+				clauses[0] = ClauseCreator.buildIClauseComponent( Arrays.copyOfRange(s, index + 1, s.length));
 				break;
 			case "for":
 				clauses = new IClauseComponent[3];
@@ -72,11 +81,6 @@ public class PrgmControlStructure implements IBodyPart {
 			}
 		}
 		return indexes;
-	}
-	
-	public void buildBody() {
-		
-	
 	}
 	
 	public void printBodyPart() {

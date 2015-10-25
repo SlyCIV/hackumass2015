@@ -1,0 +1,12 @@
+package com.umass.hackathon;
+import java.lang.*;
+
+public class TestHierarchy {
+
+	public static void main(String[] args) {
+		String s = "if b is greater than not n and r is less than rachael";
+		PrgmControlStructure test = new PrgmControlStructure( s.split(" ") );
+		test.printBodyPart();
+	}
+
+}
